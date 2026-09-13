@@ -17,6 +17,7 @@
 | 树干攀爬 | 上下移动与周向绕树；世界空间支撑点、手脚换点、IK 和可达性约束 | 空间几何、接触保持、姿态连续性 |
 | 定向技能 | 按住瞄准、拖动取消、松手释放；旋风扫掠、墙体截断、单次击飞 | 触控交互、碰撞查询、技能流程 |
 | 工程复用 | 运动模块以固定版本 UPM 包接入，输入、动画和玩法规则保留在项目层 | 依赖边界、版本管理 |
+| 移动端接入 | 多点触控、浮动摇杆、拖拽定向施法；URP 移动构建纹理处理与 Android 测试包导出 | 输入路由、资源构建、平台适配 |
 
 ## 攀爬：身体移动与支撑点协作
 
@@ -27,6 +28,8 @@
 抓附分为 `Free → Entering → Climbing` 三个阶段。进入时共享进度控制路径引导与姿态混合；攀爬时将支撑点固定在世界空间，规划手脚下一落点，再通过肢体可达性限制身体位移。松手后恢复普通运动和重力，落地后恢复跳跃资格。
 
 当前对象为规则胶囊树干，不扩展宣称任意地形攀爬或顶部翻越。
+
+树干表面和接触点按世界半径计算；树干半径或尺寸变化时重新拟合抓附位置和支撑点，使同一套攀爬逻辑适配不同半径的规则树干。
 
 ## 动作战斗：统一采样顺序
 
@@ -53,11 +56,12 @@ flowchart LR
 | 连击时钟与姿态采样 | `StaffComboDefinition`、`StaffComboClock`、`PlayerAttackTrial` |
 | 攀爬与接触 | `PlayerTreeClimber`、`ClimbableTree`、`ClimbContactIK` |
 | 旋风及触控瞄准 | `PlayerWindCaster`、`WindTornadoProjectile`、`MobileDirectionalSkillControl` |
+| 移动端输入与构建 | `MobileTouchInputController`、`MobileJoystickControl`、`MobileTextureImportPolicy`、`MobileGlbTextureBuildPipeline`、`TrainingAndroidBuild` |
 
 ## 验证与状态
 
 已有检查覆盖二跳次数、不同固定步长、攀爬接触、连续状态切换和技能命中。历史报告记录编辑模式 **182/182**、运行模式 **96/96** 通过，时间为 2026-09-10；用例存在重叠，不将其合并为独立用例数。
 
-后续动作修改不由该历史报告自动背书。原型尚未完成完整移动端真机及微信发布验收，养成数值尚未接入。详见 [验证说明](../notes/validation.md)。
+后续动作修改不由该历史报告自动背书。已生成 Android 开发测试 APK，构建状态记录为成功；该结果证明测试包导出链路可用，不等同于完整真机手感、性能或商店发布验收。微信发布验收和养成数值尚未完成。详见 [验证说明](../notes/validation.md)。
 
 **继续阅读：[角色控制与动作时序](../notes/character-and-combat.md) · [LostHeart](lost-heart.md)**
