@@ -1,0 +1,5 @@
+# This repository only contains the public portfolio.
+.DS_Store
+Thumbs.db
+__pycache__/
+*.tmp
