@@ -6,6 +6,8 @@
 
 **技术栈**：Unity 2022.3、C#、Input System、UGUI、Addressables、CharacterController、有限状态机。
 
+**个人贡献**：除本页介绍的程序与工具开发外，项目中的模型均由本人建模，结合 Blender → Unity 流程完成模型制作与引擎接入。
+
 ## 核心实现
 
 ### 多设备输入与双角色

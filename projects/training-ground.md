@@ -6,6 +6,8 @@
 
 **技术栈**：Unity 2022.3、C#、CharacterController、Playables、Humanoid IK、Input System、ScriptableObject。
 
+**协作分工**：本页展示角色控制、动作系统与玩法程序实现；项目中的模型由另一位团队成员制作。
+
 ## 核心实现
 
 | 模块 | 实现 | 对应能力 |
