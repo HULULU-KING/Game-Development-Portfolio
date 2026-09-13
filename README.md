@@ -13,11 +13,13 @@
 | **[TrainingGround →](projects/training-ground.md)** | 3D 动作玩法原型：二段跳、攀爬、三连击、旋风 | 固定步控制、动作时序、接触 IK、技能判定 |
 | **[LostHeart →](projects/lost-heart.md)** | 本地双角色合作探索原型：分屏、提灯、怪物与虫群 | 输入分工、玩法 AI、页面框架、UGUI 工具 |
 
-### TrainingGround · 攀爬接触原型
+## 项目画面
 
-![TrainingGround 实际运行中的树干攀爬](media/training-climb.png)
+| LostHeart · 双角色探索 | TrainingGround · 移动端攀爬 |
+| :---: | :---: |
+| [![LostHeart 双角色与提灯场景](media/lostheart-duo-scene.png)](projects/lost-heart.md) | [![TrainingGround 移动端树干攀爬](media/training-mobile-climb.jpg)](projects/training-ground.md) |
 
-*开发阶段的实际运行截图：规则树干上的手脚接触与攀爬。图片对应当时原型，不代表最终美术或最新全部玩法。*
+*开发阶段的实际运行截图，点击图片查看对应项目。*
 
 ## 重点能力
 
