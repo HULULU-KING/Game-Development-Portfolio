@@ -18,6 +18,10 @@
 
 *本地双人分屏运行画面：键鼠与手柄角色分别收到提灯拾取提示。*
 
+![屏幕顶部的循环等距导航条](../media/lostheart-navigation-hud.png)
+
+*屏幕顶部的循环等距导航条：正中固定标记表示正前方，下方绿点指示目标任务方向。*
+
 ## 核心实现
 
 ### 基于 Input System 的输入层
@@ -62,9 +66,12 @@
 | :--- | :--- |
 | 可控四方向导航 | 候选列表、三角形区域划分、梯度权重/序列排序，回填原生 Explicit navigation；支持布局后合并刷新与 Scene 可视化 |
 | 多图形并集裁剪 | 多个 Graphic 写入同一 Stencil 值形成并集，管理动态绑定、材质创建/释放和编辑器同步；同一 Stencil 运算思路可继续扩展交集规则，当前交付为并集实现 |
+| 循环等距导航条 | 先逆向求边界成员，再用等差数列摆放可见刻度、其余直接关闭；导航组件与预制体分层，组件只向根对象写入 6 个值；配套自定义 Inspector 与一键重建生成器 |
 | 章节异步加载 | Addressables 初始化、依赖下载量检查、进度反馈、场景加载与句柄生命周期 |
 
 导航和裁剪组件均包含 Runtime、Editor、Tests 结构、示例与文档，并接入实际 StartScene。
+
+[查看循环等距导航条的算法、取舍与性能处理 →](../notes/compass-navigation.md)
 
 ### 跨平台输入、渲染与构建资源
 
@@ -97,6 +104,7 @@ flowchart TD
 | 玩法 AI | `ForestMonsterController`、`GlowwormGroup`、`PseudoRandom` |
 | 页面框架 | `PageManager`、`Page`、`PageAnimationManager`、`SettingPageManager` |
 | UI 工具 | `HLL_UINavigator`、`HLL_UINavigationManager`、`HLLMask`、`HLLMaskImage` |
+| 循环等距导航条 | `HLLMapStripNavigation`、`HLLMapStripNavigationMath`、`Pointer_Layout_HLLMapStrip`、`Centre_Layout_HLLMapStrip` |
 | 资源加载 | `GameplaySceneLoader` |
 
 ## 项目状态
